@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditText
+        android:id="@+id/prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_marginBottom="376dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="What are you looking for?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/query"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
+        android:layout_marginTop="44dp"
+        android:hint="e.g. computer repair"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prompt" />
+</android.support.constraint.ConstraintLayout>
