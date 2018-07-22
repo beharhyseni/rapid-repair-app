@@ -1,5 +1,7 @@
 package com.rapidrepair;
+
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -8,34 +10,38 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
-import com.rapidrepair.R;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
     private ServicePost[] posts;
     private Context context;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView title;
         public TextView description;
         public TextView host;
         public TextView numRatings;
         public ImageView photo;
         public RatingBar rating;
+        private final Context ct;
 
         public ViewHolder(View v) {
             super(v);
-            title =  v.findViewById(R.id.title);
-            description =  v.findViewById(R.id.description);
-            host =  v.findViewById(R.id.host);
-            numRatings =  v.findViewById(R.id.numRatings);
-            photo =  v.findViewById(R.id.photo);
+            title = v.findViewById(R.id.title);
+            description = v.findViewById(R.id.description);
+            host = v.findViewById(R.id.host);
+            numRatings = v.findViewById(R.id.numRatings);
+            photo = v.findViewById(R.id.photo);
+            ct = v.getContext();
+            photo.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            final Intent intent = new Intent(ct, ServiceActivity.class);
+            ct.startActivity(intent);
         }
     }
-    
+
     // Provide a suitable constructor (depends on the kind of dataset)
     public PostsAdapter(ServicePost[] posts, Context context) {
         this.posts = posts;

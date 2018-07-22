@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import com.rapidrepair.R;
 
 import java.util.ArrayList;
 
@@ -27,21 +26,10 @@ public class FeedActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // Create some fake data
-        ServiceReview r1 = new ServiceReview(4.5, "Best plumber in town!");
-        ServiceReview r2 = new ServiceReview(5, "Excellent service");
-        ServiceReview r3 = new ServiceReview(5, "Great job!");
-        ArrayList<ServiceReview> s1_r = new ArrayList<>();
-        ArrayList<ServiceReview> s2_r = new ArrayList<>();
-        s1_r.add(r1);
-        s1_r.add(r2);
-        s2_r.add(r3);
-        ServicePost service1 = new ServicePost("Professional Plumber","I can help you with plumbing needs in the kitchen, bathroom, and basement", "Behar Hyseni", "/image/plumber.jpg",s1_r);
-        ServicePost service2 = new ServicePost("Landscaper","Stump removal, weed removal", "Cathy Jiao", "/images/landscaping.jpg", s2_r);
-        ServicePost[] posts = {service1, service2};
-
         // specify an adapter (see also next example)
-        mAdapter = new PostsAdapter(posts, this);
+        ServicesData data = new ServicesData();
+        ServicePost[] servicePosts = data.getServicesData();
+        mAdapter = new PostsAdapter(servicePosts, this);
         mRecyclerView.setAdapter(mAdapter);
     }
 }
