@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 import com.rapidrepair.R;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
@@ -145,6 +146,7 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
             serviceUser.setPhone(getMobileNumber);
             serviceUser.setLocation(getLocation);
             helper.insertServiceUser(serviceUser);
+            startActivity(new Intent(view.getContext(), usertype.class));
 
         }
     }
