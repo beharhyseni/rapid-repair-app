@@ -181,7 +181,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
             DatabaseHelper helper = new DatabaseHelper(this.getView().getContext());
             String password = helper.searchPass(getEmailId);
             if (password.equals(getPassword)) {
-                startActivity(new Intent(view.getContext(),SearchActivity.class));
+                startActivity(new Intent(view.getContext(),ProviderFeed.class));
             } else {
                 Toast.makeText(getActivity(), "Passwords do not match.", Toast.LENGTH_SHORT)
                         .show();

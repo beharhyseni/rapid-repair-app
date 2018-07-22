@@ -37,7 +37,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (true) {
-                    startActivity(new Intent(SearchActivity.this, ProviderFeed.class));
+                    startActivity(new Intent(SearchActivity.this, FeedActivity.class));
 
 
                 }
