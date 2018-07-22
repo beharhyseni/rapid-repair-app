@@ -20,12 +20,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SignUp_Fragment extends Fragment implements OnClickListener {
+
+
     private static View view;
     private static EditText fullName, emailId, mobileNumber, location,
             password, confirmPassword;
     private static TextView login;
     private static Button signUpButton;
     private static CheckBox terms_conditions;
+
 
     public SignUp_Fragment() {
 
@@ -118,12 +121,12 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
             // Check if email id valid or not
         else if (!m.find())
             new CustomToast().Show_Toast(getActivity(), view,
-                    "Your Email Id is Invalid.");
+                    "Your Email Address is invalid.");
 
             // Check if both password should be equal
         else if (!getConfirmPassword.equals(getPassword))
             new CustomToast().Show_Toast(getActivity(), view,
-                    "Both password doesn't match.");
+                    "Passwords do not match.");
 
             // Make sure user should check Terms and Conditions checkbox
         else if (!terms_conditions.isChecked())
@@ -131,9 +134,18 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
                     "Please select Terms and Conditions.");
 
             // Else do signup or do your stuff
-        else
-            Toast.makeText(getActivity(), "Do SignUp.", Toast.LENGTH_SHORT)
-                    .show();
+        else {
+            DatabaseHelper helper = new DatabaseHelper(this.getView().getContext());
+           // Toast.makeText(getActivity(), "Do SignUp.", Toast.LENGTH_SHORT)
+             //       .show();
+            ServiceUser serviceUser = new ServiceUser();
+            serviceUser.setName(getFullName);
+            serviceUser.setEmail(getEmailId);
+            serviceUser.setPassword(getPassword);
+            serviceUser.setPhone(getMobileNumber);
+            serviceUser.setLocation(getLocation);
+            helper.insertServiceUser(serviceUser);
 
+        }
     }
 }
