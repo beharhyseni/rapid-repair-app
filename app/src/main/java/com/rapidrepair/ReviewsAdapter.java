@@ -11,6 +11,8 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.ViewHold
     private ServiceReview[] reviews;
     private Context context;
 
+
+    public ReviewsAdapter(){}
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder

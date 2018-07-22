@@ -11,12 +11,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
 import com.squareup.picasso.Picasso;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
     private ServicePost[] posts;
     private Context context;
     private Drawable drawable;
+
+    public PostsAdapter(){}
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView title;
@@ -37,6 +40,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             photo = v.findViewById(R.id.photo);
             ct = v.getContext();
             photo.setOnClickListener(this);
+            Drawable myDrawable = ct.getDrawable(R.drawable.plumber);
+            photo.setImageDrawable(myDrawable);
         }
 
         @Override
