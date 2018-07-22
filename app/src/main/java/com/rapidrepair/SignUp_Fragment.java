@@ -138,7 +138,7 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
         else {
             DatabaseHelper helper = new DatabaseHelper(this.getView().getContext());
            // Toast.makeText(getActivity(), "Do SignUp.", Toast.LENGTH_SHORT)
-             //       .show();
+             //     .show();
             ServiceUser serviceUser = new ServiceUser();
             serviceUser.setName(getFullName);
             serviceUser.setEmail(getEmailId);

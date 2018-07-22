@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 import com.rapidrepair.R;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
@@ -180,8 +181,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
             DatabaseHelper helper = new DatabaseHelper(this.getView().getContext());
             String password = helper.searchPass(getEmailId);
             if (password.equals(getPassword)) {
-                Toast.makeText(getActivity(), "Logged in successfully.", Toast.LENGTH_SHORT)
-                        .show();
+                startActivity(new Intent(view.getContext(),SearchActivity.class));
             } else {
                 Toast.makeText(getActivity(), "Passwords do not match.", Toast.LENGTH_SHORT)
                         .show();

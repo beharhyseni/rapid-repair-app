@@ -23,6 +23,8 @@
     <string name="already_user">Already have an account? Login here.</string>
     <string name="registered_emailid">Please enter your registered email address below:</string>
     <string name="submit">SUBMIT</string>
+    <string name="needTech">I need a technician.</string>
+    <string name="amTech">I am a technician.</string>
     <string name="back">BACK</string>
 
 </resources>

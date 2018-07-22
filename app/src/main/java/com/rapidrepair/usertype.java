@@ -1,5 +1,6 @@
 package com.rapidrepair;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,7 @@ public class usertype extends AppCompatActivity {
     private RadioButton radioButton;
     private Button button;
 
-    public usertype(){
+    public usertype() {
 
     }
 
@@ -41,10 +42,18 @@ public class usertype extends AppCompatActivity {
 
                 // find the radiobutton by returned id
                 radioButton = (RadioButton) findViewById(selectedId);
+                String amTech = "I am a technician.";
+                String needTech = "I need a technician.";
+                if (radioButton.getText().equals(needTech)) {
+                    startActivity(new Intent(usertype.this, SearchActivity.class));
+                } else if (radioButton.getText().equals(amTech)) {
+                    startActivity(new Intent(usertype.this, ProviderFeed.class));
+                } else {
 
-                Toast.makeText(usertype.this,
-                        radioButton.getText(), Toast.LENGTH_SHORT).show();
 
+                    Toast.makeText(usertype.this,
+                            radioButton.getText(), Toast.LENGTH_SHORT).show();
+                }
             }
 
         });
