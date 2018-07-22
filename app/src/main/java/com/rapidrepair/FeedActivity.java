@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import com.rapidrepair.R;
 
 import java.util.ArrayList;
 
@@ -35,12 +36,12 @@ public class FeedActivity extends AppCompatActivity {
         s1_r.add(r1);
         s1_r.add(r2);
         s2_r.add(r3);
-        ServicePost service1 = new ServicePost("Professional Plumber","I can help you with plumbing needs in the kitchen, bathroom, and basement", "Behar Hyseni", "/images/plumber.jpg",s1_r);
+        ServicePost service1 = new ServicePost("Professional Plumber","I can help you with plumbing needs in the kitchen, bathroom, and basement", "Behar Hyseni", "/image/plumber.jpg",s1_r);
         ServicePost service2 = new ServicePost("Landscaper","Stump removal, weed removal", "Cathy Jiao", "/images/landscaping.jpg", s2_r);
         ServicePost[] posts = {service1, service2};
 
         // specify an adapter (see also next example)
-        mAdapter = new PostsAdapter(posts);
+        mAdapter = new PostsAdapter(posts, this);
         mRecyclerView.setAdapter(mAdapter);
     }
 }

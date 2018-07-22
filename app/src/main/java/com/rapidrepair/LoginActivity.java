@@ -2,6 +2,7 @@ package com.rapidrepair;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import com.rapidrepair.R;
 
 public class LoginActivity extends AppCompatActivity {
 

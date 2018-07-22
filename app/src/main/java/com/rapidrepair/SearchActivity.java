@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.MultiAutoCompleteTextView;
+import com.rapidrepair.R;
 
 public class SearchActivity  extends AppCompatActivity {
     private static final String[] SERVICES = new String[] {

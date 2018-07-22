@@ -1,20 +1,18 @@
 package com.rapidrepair;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
-import java.io.File;
+import com.squareup.picasso.Picasso;
+import com.rapidrepair.R;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
     private ServicePost[] posts;
+    private Context context;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -39,8 +37,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     }
     
     // Provide a suitable constructor (depends on the kind of dataset)
-    public PostsAdapter(ServicePost[] posts) {
+    public PostsAdapter(ServicePost[] posts, Context context) {
         this.posts = posts;
+        this.context = context;
     }
 
     // Create new views (invoked by the layout manager)
@@ -48,7 +47,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     public PostsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.post_row, parent, false);
+                .inflate(R.layout.post, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
@@ -60,12 +59,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         holder.description.setText(posts[position].getDescription());
         holder.host.setText(posts[position].getHost());
         holder.numRatings.setText(posts[position].getNumRatings().toString());
-        File imgFile = new File(posts[position].getPhoto());
-        //if(imgFile.exists()){
-        String absPath = imgFile.getAbsolutePath();
-        Bitmap myBitmap = BitmapFactory.decodeFile(absPath);
-        holder.photo.setImageBitmap(myBitmap);
-        //}
+        Picasso.with(context).load(posts[position].getPhoto()).into(holder.photo);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

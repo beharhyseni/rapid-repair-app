@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            app:srcCompat="@android:color/background_dark" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/photo"
+            android:layout_margin="5dp"
+            android:text="Title"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_margin="5dp"
+            android:text="Description" />
+
+        <TextView
+            android:id="@+id/host"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:layout_margin="5dp"
+            android:text="Hosted by Cathy Jiao" />
+
+        <TextView
+            android:id="@+id/Reviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/host"
+            android:layout_margin="5dp"
+            android:layout_marginTop="20dp"
+            android:text="Reviews"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Reviews"
+            android:layout_margin="5dp"
+            android:numStars="5"
+            android:rating="5"
+            style="?attr/ratingBarStyleSmall"
+            />
+
+        <TextView
+            android:id="@+id/numRatings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/ratingBar"
+            android:layout_below="@id/Reviews"
+            android:layout_margin="5dp"
+            android:text="50" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
