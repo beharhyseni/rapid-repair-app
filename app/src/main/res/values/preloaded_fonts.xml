@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/advent_pro_thin</item>
+        <item>@font/carrois_gothic_sc</item>
+        <item>@font/coda</item>
+        <item>@font/convergence</item>
+        <item>@font/days_one</item>
+        <item>@font/geo</item>
+        <item>@font/jura_light</item>
+        <item>@font/scope_one</item>
+    </array>
+</resources>
